@@ -24,9 +24,9 @@ def generate_clearer_image(input_image_path, output_folder):
     response = client.images.edit(
         model="dall-e-2",
         image = img_byte_arr,
-        prompt="Enhance the clarity of this image, making it less blurry and sharper. The images have been blurred using a 7x7 kernel. The output image should have a resolution of 1024x1024. Keep the image contents the same.",
+        prompt="Enhance the clarity of this image, making it less blurry and sharper. The images have been blurred using a 5x5 kernel. The output image should have a resolution of 512x512. Keep the image contents the same.",
         n=1,
-        size="1024x1024"
+        size="512x512"
     )
 
     # Get the URL of the generated image
@@ -53,7 +53,7 @@ def download_image(image_url, output_path):
         print(f"Error downloading image: {response.status_code}")
 
 # Placeholder for the input folder path
-input_folder_path = Path("/Users/cheffbcookin/Desktop/EC520/AI-Image_Processing_Tasks/BlurredImages/Blur_7x7")
+input_folder_path = Path("/Users/cheffbcookin/Desktop/EC520/AI-Image_Processing_Tasks/BlurringTask/Blur_5x5")
 
 # Output folder
 output_folder_path = input_folder_path.parent / (input_folder_path.name + "_dalle2_deblurred")
